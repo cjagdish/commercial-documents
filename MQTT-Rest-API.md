@@ -811,5 +811,108 @@
         * `area_name`: Name of the area.
         * `zone_uuid`: Unique identifier of the zone.
      
+### 3.2. Create Zone
 
+* **Request Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/ZONE/ACTION`
+* **Request Payload:**
+
+    ```json
+    {
+      "version": "v1.0",
+      "action": "create",
+      "data": {
+          "area_uuid":"f1677ff1-0138-47a0-b202-5de5e83827a0",
+          "name": "Demo 1",
+          "isolated": false
+       }
+    }
+    ```
+
+    * `version`: API version.
+    * `action`: Action to perform (e.g., "create").
+    * `data`: Zone details.
+        * `area_uuid`: Unique identifier of the area.
+        * `name`: Name of the area.
+        * `isolated`: if you set isolated true,your zone network is isolate.
+
+* **Response Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/ZONE/E/ACTION`
+* **Response Payload:**
+
+    ```json
+    {
+       "action":"create",
+       "message":"success",
+       "version":"v1.0",
+       "data":{
+          "area_uuid":"f1677ff1-0138-47a0-b202-5de5e83827a0",
+          "area_name":"A514 office",
+          "zone_uuid":"57fc8ee9-b192-475f-8b59-8fef66838dfd",
+          "zone_address":49442,
+          "name":"Demo 1"
+       }
+    }
+    ```
+
+    * `message`: Status of the request.
+    * `version`: API version.
+    * `action`: Action performed.
+    * `data`: Zone details.
+        * `zone_address`: Address of the zone.
+        * `name`: Name of the zone.
+        * `area_uuid`: Unique identifier of the area.
+        * `area_name`: Name of the area.
+        * `zone_uuid`: Unique identifier of the zone.
+     
+### 2.3. Edit Zone
+
+* **Request Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/ZONE/ACTION`
+* **Request Payload:**
+
+    ```json
+    {
+      "version": "v1.0",
+      "action": "edit",
+      "data": {
+          "zone_uuid":"57fc8ee9-b192-475f-8b59-8fef66838dfd",
+          "name": "Hello 1",
+          "isolated": false
+       }
+    }
+    ```
+
+    * `version`: API version.
+    * `action`: Action to perform (e.g., "edit").
+    * `data`: Zone details.
+        * `name`: Name of the zone.
+        * `isolated`: if you set isolated true,your zone network is isolate.
+        * `zone_uuid`: Unique identifier of the zone.
+     
+* **Response Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/ZONE/E/ACTION`
+* **Response Payload:**
+
+    ```json
+    {
+       "message":"success",
+       "action":"edit",
+       "version":"v1.0",
+       "data":{
+          "area_uuid":"f1677ff1-0138-47a0-b202-5de5e83827a0",
+          "area_name":"A514 office",
+          "zone_uuid":"57fc8ee9-b192-475f-8b59-8fef66838dfd",
+          "zone_address":49442,
+          "name":"Hello 1"
+       }
+    }
+    ```
+
+    * `message`: Status of the request.
+    * `version`: API version.
+    * `action`: Action performed.
+    * `data`: Zone details.
+        * `zone_address`: Address of the zone.
+        * `name`: Name of the zone.
+        * `area_uuid`: Unique identifier of the area.
+        * `area_name`: Name of the area.
+        * `zone_uuid`: Unique identifier of the zone.
+     
       
