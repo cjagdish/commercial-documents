@@ -49,13 +49,13 @@
         * [6.2.2 Operate Dimmer](#622-operate-dimmer)
 7. [Live Events](#7-live-events])
 
-**Broker Connection Details**
+## Broker Connection Details
 
 * **URL:** `mqtt://192.168.0.111:1883`
 * **Username:** `admin`
 * **Password:** `admin@123`
 
-**General Notes**
+## General Notes
 
 * All payloads are in JSON format.
 * All topics follow a hierarchical structure: `LYT/<project_uuid>/<entity>/<action_type>`
