@@ -25,7 +25,7 @@
     * [3.3. Edit Zone](#33-get-zone)  
     * [3.4. Delete Zone](#34-delete-zone)
     * [3.5. Get All Nodes](#35-get-all-zones)
-    * [3.6. Get All Gateways](#36-get-all-nodes) 
+    * [3.6. Get All Assign Gateways](#36-get-all-assign-gateways) 
 4.  [Node Actions](#4-node-actions)
     * [4.1. Get Node](#41-get-node)
     * [4.2. Get All Nodes](#42-get-all-nodes)
@@ -760,6 +760,52 @@
         * `unicast_address`: Node unicast address
         * `area_uuid`: Unique identifier of the area.
         * `area_name`: Area name
+     
+## 3. Zone Actions
 
+### 3.1. Get Zone
+
+* **Request Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/ZONE/ACTION`
+* **Request Payload:**
+
+    ```json
+    {
+      "version": "v1.0",
+      "action": "get",
+      "data": {
+          "zone_uuid": "f1677ff1-0138-47a0-b202-5de5e83827a0"
+       }
+    }
+    ```
+
+    * `version`: API version.
+    * `action`: Action to perform (e.g., "get").
+    * `data`: Area details.
+        * `zone_uuid`: Unique identifier of the zone.
+     
+* **Response Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/ZONE/E/ACTION`
+* **Response Payload:**
+
+    ```json
+    {
+       "message":"success",
+       "version":"v1.0",
+       "action":"get",
+       "data":{
+          "area_uuid":"f1677ff1-0138-47a0-b202-5de5e83827a0",
+          "name":"A514 office",
+          "project_uuid":"7346d2b3-ee78-4907-b6cb-c936b8aed1b1"
+       }
+    }
+    ```
+
+    * `message`: Status of the request (e.g., "success").
+    * `version`: API version.
+    * `action`: Action performed.
+    * `data`: Area details.
+        * `area_uuid`: Unique identifier of the area.
+        * `project_uuid`: Unique identifier of the project.
+        * `name`: Name of the area.
+     
 
       
