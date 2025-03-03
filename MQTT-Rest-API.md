@@ -624,5 +624,142 @@
         * `area_uuid`: Unique identifier of the area.
         * `area_name`: Name of the area.
         * `zone_uuid`: Unique identifier of the zone.
+     
+### 2.6. Get All Nodes
+
+* **Request Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/AREA/ACTION`
+* **Request Payload:**
+
+    ```json
+    {
+      "version": "v1.0",
+      "action": "get-all-nodes",
+      "limit": 10,
+      "offset": 0,
+     "data":{
+          "area_uuid":"f1677ff1-0138-47a0-b202-5de5e83827a0"
+       }
+    }
+    ```
+
+    * `version`: API version.
+    * `action`: Action to perform (e.g., "get-all-nodes").
+    * `limit`: (Optional) Maximum number of nodes to return. Default: 50.
+    * `offset`: (Optional) Starting position for the results. Default: 0.
+    * `data`: Area details.
+        * `area_uuid`: Unique identifier of the area.
+
+* **Response Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/AREA/E/ACTION`
+* **Response Payload:**
+
+    ```json
+    {
+        "message": "success",
+        "version": "v1.0",
+        "action": "get-all-nodes",
+        "data": [
+            {
+                "node_uuid": "bbcc84f7-0316-4ec6-0000-000000000000",
+                "name": "LYTIVA_164EC6",
+                "pid": "1015",
+                "vid": "0263",
+                "unicast_address": 5743,
+                "zone_uuid": "63ab9c4b-08f3-437e-a448-0eab7c9e1420",
+                "zone_name": "First zone",
+                "zone_address": 50646,
+                "model_id": "1303",
+                "device_type": "ctl"
+            },
+            {
+                "node_uuid": "bbcc84f7-0316-3716-0000-000000000000",
+                "name": "LYTIVA_163716",
+                "pid": "1015",
+                "vid": "0263",
+                "unicast_address": 1345,
+                "zone_uuid": "06168eeb-7ca5-49e7-a769-7073347af48f",
+                "zone_name": "Second Zone",
+                "zone_address": 49536,
+                "model_id": "1303",
+                "device_type": "ctl"
+            }
+        ]
+    }
+    ```
+
+    * `message`: Status of the request.
+    * `version`: API version.
+    * `action`: Action performed.
+    * `data`: Array of zone objects.
+        * `node_uuid`: Unique identifier for the node
+        * `name`: Name of the node.
+        * `zone_address`: Address of the zone.
+        * `pid`: Product id
+        * `vid`: Version id
+        * `unicast_address`: Node unicast address
+        * `zone_uuid`: Unique identifier of the zone.
+        * `zone_name`: Zone name
+        * `zone_address`: Zone address
+        * `model_id`: Model identifier
+        * `device_type`: Type of device
+        * 
+
+### 2.7. Get All Gateways
+
+* **Request Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/AREA/ACTION`
+* **Request Payload:**
+
+    ```json
+    {
+      "version": "v1.0",
+      "action": "get-all-gateways",
+      "limit": 10,
+      "offset": 0,
+       "data":{
+          "area_uuid":"f1677ff1-0138-47a0-b202-5de5e83827a0"
+       }
+    }
+    ```
+
+    * `version`: API version.
+    * `action`: Action to perform (e.g., "get-all-nodes").
+    * `limit`: (Optional) Maximum number of nodes to return. Default: 50.
+    * `offset`: (Optional) Starting position for the results. Default: 0.
+    * `data`: Area details.
+        * `area_uuid`: Unique identifier of the area.
+     
+* **Response Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/AREA/E/ACTION`
+* **Response Payload:**
+
+    ```json
+    {
+       "message": "success",
+       "version": "v1.0",
+       "action": "get-all-gateways",
+       "data": [
+           {
+               "gateway_uuid": "aaaa84f7-036e-8d2e-0000-000000000000",
+               "name": "AERIVA_6E8D2E",
+               "pid": "1041",
+               "vid": "0111",
+               "area_uuid": "f1677ff1-0138-47a0-b202-5de5e83827a0",
+               "area_name": "A514 office",
+               "unicast_address": 249
+           }
+       ]
+   }
+   ```
+
+    * `message`: Status of the request.
+    * `version`: API version.
+    * `action`: Action performed.
+    * `data`: Array of gateway objects.
+        * `gateway_uuid`: Unique identifier for the gateway
+        * `name`: Name of the node.
+        * `pid`: Product id
+        * `vid`: Version id
+        * `unicast_address`: Node unicast address
+        * `area_uuid`: Unique identifier of the area.
+        * `area_name`: Area name
+
 
       
