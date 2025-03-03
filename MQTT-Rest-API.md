@@ -863,7 +863,7 @@
         * `area_name`: Name of the area.
         * `zone_uuid`: Unique identifier of the zone.
      
-### 2.3. Edit Zone
+### 3.3. Edit Zone
 
 * **Request Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/ZONE/ACTION`
 * **Request Payload:**
@@ -915,4 +915,44 @@
         * `area_name`: Name of the area.
         * `zone_uuid`: Unique identifier of the zone.
      
-      
+### 3.4. Delete Zone
+
+* **Request Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/ZONE/ACTION`
+* **Request Payload:**
+
+    ```json
+    {
+      "version": "v1.0",
+      "action": "delete",
+      "data": {
+          "zone_uuid":"57fc8ee9-b192-475f-8b59-8fef66838dfd"
+       }
+    }
+    ```
+
+    * `version`: API version.
+    * `action`: Action to perform (e.g., "delete").
+    * `data`: Zone details.
+        * `zone_uuid`: Unique identifier of the Zone.
+     
+* **Response Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/ZONE/E/ACTION`
+* **Response Payload:**
+
+    ```json
+    {
+       "action":"delete",
+       "message":"success",
+       "version":"v1.0",
+       "data":{
+          "zone_uuid":"57fc8ee9-b192-475f-8b59-8fef66838dfd",
+          "zone_address":49442
+       }
+    }
+    ```
+
+    * `message`: Status of the request.
+    * `version`: API version.
+    * `action`: Action performed.
+    * `data`: Zone details.
+        * `zone_uuid`: Unique identifier of the zone.
+        * `zone_address`: Address of the zone.
