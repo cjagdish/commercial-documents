@@ -530,3 +530,99 @@
         * `area_uuid`: Unique identifier of the area.
         * `project_uuid`: Unique identifier of the project.
         * `name`: Name of the area.
+     
+### 2.4. Delete Area
+
+* **Request Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/AREA/ACTION`
+* **Request Payload:**
+
+    ```json
+    {
+      "version": "v1.0",
+      "action": "delete",
+      "data": {
+          "area_uuid":"f1677ff1-0138-47a0-b202-5de5e83827a0"
+       }
+    }
+    ```
+
+    * `version`: API version.
+    * `action`: Action to perform (e.g., "edit").
+    * `data`: Area details.
+        * `area_uuid`: Unique identifier of the area.
+     
+* **Response Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/AREA/E/ACTION`
+* **Response Payload:**
+
+    ```json
+    {
+       "message":"success",
+       "version":"v1.0",
+       "action":"delete",
+       "data":{
+          "area_uuid":"f1677ff1-0138-47a0-b202-5de5e83827a0"
+       }
+    }
+    ```
+
+    * `message`: Status of the request (e.g., "success").
+    * `version`: API version.
+    * `action`: Action performed.
+    * `data`: Area details.
+        * `area_uuid`: Unique identifier of the area.
+     
+### 2.5. Get All Zones
+
+* **Request Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/AREA/ACTION`
+* **Request Payload:**
+
+    ```json
+    {
+      "version": "v1.0",
+      "action": "get-all-zones",
+      "limit": 10,
+      "offset": 0,
+     "data":{
+          "area_uuid":"f1677ff1-0138-47a0-b202-5de5e83827a0"
+       }
+    }
+    ```
+
+    * `version`: API version.
+    * `action`: Action to perform (e.g., "get-all-zones").
+    * `limit`: (Optional) Maximum number of zones to return. Default: 50.
+    * `offset`: (Optional) Starting position for the results. Default: 0.
+    * `data`: Area details.
+        * `area_uuid`: Unique identifier of the area.
+     
+* **Response Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/AREA/E/ACTION`
+* **Response Payload:**
+
+    ```json
+    {
+      "message": "success",
+      "version": "v1.0",
+      "action": "get-all-zones",
+      "data": [
+        {
+          "zone_address": 50646,
+          "name": "First zone",
+          "area_uuid": "f1677ff1-0138-47a0-b202-5de5e83827a0",
+          "area_name": "A514 office",
+          "zone_uuid": "63ab9c4b-08f3-437e-a448-0eab7c9e1420"
+        }
+      ]
+    }
+    ```
+
+    * `message`: Status of the request.
+    * `version`: API version.
+    * `action`: Action performed.
+    * `data`: Array of zone objects.
+        * `zone_address`: Address of the zone.
+        * `name`: Name of the zone.
+        * `area_uuid`: Unique identifier of the area.
+        * `area_name`: Name of the area.
+        * `zone_uuid`: Unique identifier of the zone.
+
+      
