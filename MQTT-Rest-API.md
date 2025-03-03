@@ -322,7 +322,7 @@
     * `message`: Status of the request.
     * `version`: API version.
     * `action`: Action performed.
-    * `data`: Array of zone objects.
+    * `data`: Array of node objects.
         * `node_uuid`: Unique identifier for the node
         * `name`: Name of the node.
         * `zone_address`: Address of the zone.
@@ -689,7 +689,7 @@
     * `message`: Status of the request.
     * `version`: API version.
     * `action`: Action performed.
-    * `data`: Array of zone objects.
+    * `data`: Array of node objects.
         * `node_uuid`: Unique identifier for the node
         * `name`: Name of the node.
         * `zone_address`: Address of the zone.
@@ -956,3 +956,68 @@
     * `data`: Zone details.
         * `zone_uuid`: Unique identifier of the zone.
         * `zone_address`: Address of the zone.
+     
+### 3.5. Get All Nodes
+
+* **Request Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/ZONE/ACTION`
+* **Request Payload:**
+
+    ```json
+    {
+      "version": "v1.0",
+      "action": "get-all-nodes",
+      "limit": 10,
+      "offset": 0,
+     "data":{
+          "zone_uuid":"63ab9c4b-08f3-437e-a448-0eab7c9e1420"
+       }
+    }
+    ```
+
+    * `version`: API version.
+    * `action`: Action to perform (e.g., "get-all-nodes").
+    * `limit`: (Optional) Maximum number of nodes to return. Default: 50.
+    * `offset`: (Optional) Starting position for the results. Default: 0.
+    * `data`: Zone details.
+        * `zone_uuid`: Unique identifier of the zone.
+
+* **Response Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/ZONE/E/ACTION`
+* **Response Payload:**
+
+    ```json
+    {
+       "message":"success",
+       "version":"v1.0",
+       "action":"get-all-nodes",
+       "data":[
+          {
+             "node_uuid":"bbcc84f7-0316-4ec6-0000-000000000000",
+             "name":"LYTIVA_164EC6",
+             "pid":"1015",
+             "vid":"0263",
+             "unicast_address":5743,
+             "zone_uuid":"63ab9c4b-08f3-437e-a448-0eab7c9e1420",
+             "zone_name":"First zone",
+             "zone_address":50646,
+             "model_id":"1303",
+             "device_type":"ctl"
+          }
+       ]
+    }
+    ```
+
+    * `message`: Status of the request.
+    * `version`: API version.
+    * `action`: Action performed.
+    * `data`: Array of node objects.
+        * `node_uuid`: Unique identifier for the node
+        * `name`: Name of the node.
+        * `zone_address`: Address of the zone.
+        * `pid`: Product id
+        * `vid`: Version id
+        * `unicast_address`: Node unicast address
+        * `zone_uuid`: Unique identifier of the zone.
+        * `zone_name`: Zone name
+        * `zone_address`: Zone address
+        * `model_id`: Model identifier
+        * `device_type`: Type of device
