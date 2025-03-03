@@ -773,14 +773,14 @@
       "version": "v1.0",
       "action": "get",
       "data": {
-          "zone_uuid": "f1677ff1-0138-47a0-b202-5de5e83827a0"
+          "zone_uuid": "63ab9c4b-08f3-437e-a448-0eab7c9e1420"
        }
     }
     ```
 
     * `version`: API version.
     * `action`: Action to perform (e.g., "get").
-    * `data`: Area details.
+    * `data`: Zone details.
         * `zone_uuid`: Unique identifier of the zone.
      
 * **Response Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/ZONE/E/ACTION`
@@ -792,20 +792,24 @@
        "version":"v1.0",
        "action":"get",
        "data":{
+          "zone_uuid":"63ab9c4b-08f3-437e-a448-0eab7c9e1420",
+          "zone_address":50646,
+          "name":"First zone",
           "area_uuid":"f1677ff1-0138-47a0-b202-5de5e83827a0",
-          "name":"A514 office",
-          "project_uuid":"7346d2b3-ee78-4907-b6cb-c936b8aed1b1"
+          "area_name":"A514 office"
        }
     }
     ```
 
-    * `message`: Status of the request (e.g., "success").
+    * `message`: Status of the request.
     * `version`: API version.
     * `action`: Action performed.
-    * `data`: Area details.
+    * `data`: Zone details.
+        * `zone_address`: Address of the zone.
+        * `name`: Name of the zone.
         * `area_uuid`: Unique identifier of the area.
-        * `project_uuid`: Unique identifier of the project.
-        * `name`: Name of the area.
+        * `area_name`: Name of the area.
+        * `zone_uuid`: Unique identifier of the zone.
      
 
       
