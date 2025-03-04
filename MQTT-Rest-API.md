@@ -1110,9 +1110,16 @@
        "version":"v1.0",
        "action":"get",
        "data":{
-          "area_uuid":"f1677ff1-0138-47a0-b202-5de5e83827a0",
-          "name":"A514 office",
-          "project_uuid":"7346d2b3-ee78-4907-b6cb-c936b8aed1b1"
+          "node_uuid":"bbcc84f7-0316-34c6-0000-000000000000",
+          "name":"LYTIVA_1634C6",
+          "pid":"1015",
+          "vid":"0263",
+          "unicast_address":2753,
+          "zone_uuid":"3f669f5c-9355-4797-b2c7-43755d2bd33c",
+          "zone_name":"Sixth zone",
+          "zone_address":51276,
+          "model_id":"1303",
+          "device_type":"ctl"
        }
     }
     ```
