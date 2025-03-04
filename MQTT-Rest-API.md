@@ -25,7 +25,7 @@
     * [3.3. Edit Zone](#33-edit-zone)  
     * [3.4. Delete Zone](#34-delete-zone)
     * [3.5. Get All Nodes](#35-get-all-nodes)
-    * [3.6. Get Zone Added Gateways](#36-get-all-added-gateways) 
+    * [3.6. Get Zone Added Gateways](#36-get-zone-added-gateways) 
 4.  [Node Actions](#4-node-actions)
     * [4.1. Get Node](#41-get-node)
     * [4.2. Edit Node](#42-edit-node)
