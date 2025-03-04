@@ -25,7 +25,7 @@
     * [3.3. Edit Zone](#33-edit-zone)  
     * [3.4. Delete Zone](#34-delete-zone)
     * [3.5. Get All Nodes](#35-get-all-nodes)
-    * [3.6. Get All Assign Gateways](#36-get-all-assign-gateways) 
+    * [3.6. Get Zone Added Gateways](#36-get-all-added-gateways) 
 4.  [Node Actions](#4-node-actions)
     * [4.1. Get Node](#41-get-node)
     * [4.2. Get All Nodes](#42-get-all-nodes)
@@ -1012,7 +1012,6 @@
     * `data`: Array of node objects.
         * `node_uuid`: Unique identifier for the node
         * `name`: Name of the node.
-        * `zone_address`: Address of the zone.
         * `pid`: Product id
         * `vid`: Version id
         * `unicast_address`: Node unicast address
@@ -1021,3 +1020,64 @@
         * `zone_address`: Zone address
         * `model_id`: Model identifier
         * `device_type`: Type of device
+     
+### 3.6. Get Zone Added Gateways
+
+* **Request Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/ZONE/ACTION`
+* **Request Payload:**
+
+    ```json
+    {
+      "version": "v1.0",
+      "action": "get-added-gateways",
+      "limit": 10,
+      "offset": 0,
+     "data":{
+          "zone_uuid":"63ab9c4b-08f3-437e-a448-0eab7c9e1420"
+       }
+    }
+    ```
+
+    * `version`: API version.
+    * `action`: Action to perform (e.g., "get-added-gateways").
+    * `limit`: (Optional) Maximum number of nodes to return. Default: 50.
+    * `offset`: (Optional) Starting position for the results. Default: 0.
+    * `data`: Zone details.
+        * `zone_uuid`: Unique identifier of the zone.
+
+* **Response Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/ZONE/E/ACTION`
+* **Response Payload:**
+
+    ```json
+    {
+       "message":"success",
+       "version":"v1.0",
+       "action":"get-added-gateways",
+       "data":[
+          {
+             "gateway_uuid":"aaaa84f7-036e-8d2e-0000-000000000000",
+             "name":"AERIVA_6E8D2E",
+             "pid":"1041",
+             "vid":"0111",
+             "unicast_address":249,
+             "zone_uuid":"63ab9c4b-08f3-437e-a448-0eab7c9e1420",
+             "zone_name":"First zone",
+             "zone_address":50646
+          }
+       ]
+    }
+    ```
+
+    * `message`: Status of the request.
+    * `version`: API version.
+    * `action`: Action performed.
+    * `data`: Array of gateways objects.
+        * `gateway_uuid`: Unique identifier for the gateway
+        * `name`: Name of the gateway.
+        * `pid`: Product id
+        * `vid`: Version id
+        * `unicast_address`: gateway unicast address
+        * `zone_uuid`: Unique identifier of the zone.
+        * `zone_name`: Zone name
+        * `zone_address`: Zone address
+
