@@ -28,9 +28,7 @@
     * [3.6. Get Zone Added Gateways](#36-get-all-added-gateways) 
 4.  [Node Actions](#4-node-actions)
     * [4.1. Get Node](#41-get-node)
-    * [4.2. Get All Nodes](#42-get-all-nodes)
-    * [4.3. Edit Node](#43-edit-node)
-    * [4.4. Delete Node](#44-delete-node)
+    * [4.2. Edit Node](#42-edit-node)
 5. [Zone Operations](#5-zone-operations)
      * [5.1. Get Zone Status](#41-get-zone-status)
         * [5.1.1 Get CCT Zone Status](#511-get-cct-zone-status)
@@ -1080,4 +1078,58 @@
         * `zone_uuid`: Unique identifier of the zone.
         * `zone_name`: Zone name
         * `zone_address`: Zone address
+     
+## 4. Node Actions
+
+### 4.1. Get Node
+
+* **Request Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/NODE/ACTION`
+* **Request Payload:**
+
+    ```json
+    {
+      "version": "v1.0",
+      "action": "get",
+      "data": {
+          "node_uuid": "f1677ff1-0138-47a0-b202-5de5e83827a0"
+       }
+    }
+    ```
+
+    * `version`: API version.
+    * `action`: Action to perform (e.g., "get").
+    * `data`: Node details.
+        * `node_uuid`: Unique identifier of the node.
+     
+* **Response Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/NODE/E/ACTION`
+* **Response Payload:**
+
+    ```json
+    {
+       "message":"success",
+       "version":"v1.0",
+       "action":"get",
+       "data":{
+          "area_uuid":"f1677ff1-0138-47a0-b202-5de5e83827a0",
+          "name":"A514 office",
+          "project_uuid":"7346d2b3-ee78-4907-b6cb-c936b8aed1b1"
+       }
+    }
+    ```
+
+    * `message`: Status of the request.
+    * `version`: API version.
+    * `action`: Action performed.
+    * `data`: node objects.
+        * `node_uuid`: Unique identifier for the node
+        * `name`: Name of the node.
+        * `pid`: Product id
+        * `vid`: Version id
+        * `unicast_address`: Node unicast address
+        * `zone_uuid`: Unique identifier of the zone.
+        * `zone_name`: Zone name
+        * `zone_address`: Zone address
+        * `model_id`: Model identifier
+        * `device_type`: Type of device
+
 
