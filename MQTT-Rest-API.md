@@ -1299,5 +1299,44 @@
     * `ctl`: ctl objects.
         * `lightness`: Zone lightness
         * `temperature`: Zone temperature.
+     
+### 6.5. Control Dimmer Zone
 
+* **Request Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/ZONE/CONTROL`
+* **Request Payload:**
+
+    ```json
+    {
+       "version": "v1.0",
+       "type": "lightness",
+       "address": 50646,
+       "lightness": 40
+    }
+    ```
+
+    * `version`: API version.
+    * `type`: Type to perform (e.g., "lightness") .
+    * `address`: Zone address
+    * `lightness`: Set zone lightness
+     
+* **Response Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/ZONE/E/CONTROL`
+* **Response Payload:**
+
+    ```json
+    {
+       "version": "v1.0",
+       "message": "success",
+       "type": "lightness",
+       "address": 50646,
+       "lightness": {
+          "lightness": 40,
+       }
+    }
+    ```
+    * `version`: API version.
+    * `message`: Status of the request.
+    * `type`: Type perform.
+    * `address`: Zone address
+    * `lightness`: lightness objects.
+        * `lightness`: Zone lightness
 
