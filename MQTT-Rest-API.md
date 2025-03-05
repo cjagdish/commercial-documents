@@ -1142,7 +1142,7 @@
 
 ### 5.1. Get Zone Status
 
-**5.1.1 CCT Status**
+## 5.1.1 CCT Status
 
 * **Request Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/ZONE/STATUS`
 * **Request Payload:**
