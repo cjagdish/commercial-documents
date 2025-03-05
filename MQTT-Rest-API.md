@@ -28,19 +28,21 @@
     * [3.6. Get Zone Added Gateways](#36-get-zone-added-gateways) 
 4.  [Node Actions](#4-node-actions)
     * [4.1. Get Node](#41-get-node)
-5. [Zone Operations](#5-zone-operations)
-    * [5.1 Get CCT Zone Status](#51-get-cct-zone-status)
-    * [5.2 Get Dimmer Zone Status](#52-get-dimmer-zone-status)
-    * [5.3 Get Presence Zone Status](#53-get-presence-zone-status)
-    * [5.4 Control CCT Zone](#54-control-cct-zone)
-    * [5.5 Control Dimmer Zone](#55-control-dimmer-zone)
-6. [Node Operations](#6-node-operations)
-    * [6.1 Get CCT Node Status](#61-get-cct-status)
-    * [6.2 Get Dimmer Node Status](#62-get-dimmer-status)
-    * [6.3 Get Presence Node Status](#63-get-presence-status)
-    * [6.4 Control CCT Node](#64-operate-cct)
-    * [6.5 Control Dimmer Node](#65-operate-dimmer)
-8. [Live Events](#7-live-events])
+5.  [Gateway Actions](#5-gateway-actions)
+    * [5.1. Get Gateway](#51-get-gateway)
+6. [Zone Operations](#6-zone-operations)
+    * [6.1 Get CCT Zone Status](#61-get-cct-zone-status)
+    * [6.2 Get Dimmer Zone Status](#62-get-dimmer-zone-status)
+    * [6.3 Get Presence Zone Status](#63-get-presence-zone-status)
+    * [6.4 Control CCT Zone](#64-control-cct-zone)
+    * [6.5 Control Dimmer Zone](#65-control-dimmer-zone)
+7. [Node Operations](#7-node-operations)
+    * [7.1 Get CCT Node Status](#71-get-cct-status)
+    * [7.2 Get Dimmer Node Status](#72-get-dimmer-status)
+    * [7.3 Get Presence Node Status](#73-get-presence-status)
+    * [7.4 Control CCT Node](#74-operate-cct)
+    * [7.5 Control Dimmer Node](#75-operate-dimmer)
+8. [Live Events](#8-live-events])
 
 ## Broker Connection Details
 
@@ -1134,9 +1136,9 @@
         * `model_id`: Model identifier
         * `device_type`: Type of device
      
-## 5. Zone Operations
+## 6. Zone Operations
 
-### 5.1. Get CCT Zone Status
+### 6.1. Get CCT Zone Status
 
 * **Request Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/ZONE/STATUS`
 * **Request Payload:**
@@ -1176,7 +1178,7 @@
         * `lightness`: Zone lightness
         * `temperature`: Zone temperature.
      
-### 5.1. Get Dimmer Zone Status
+### 6.2. Get Dimmer Zone Status
 
 * **Request Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/ZONE/STATUS`
 * **Request Payload:**
@@ -1213,3 +1215,44 @@
     * `address`: Zone address
     * `lightness`: lightness objects.
         * `lightness`: Zone lightness
+     
+### 6.2. Get Presence Zone Status
+
+* **Request Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/ZONE/STATUS`
+* **Request Payload:**
+
+    ```json
+    {
+       "version": "v1.0",
+       "type": "presence-sensor",
+       "address": 50646
+    }
+    ```
+
+    * `version`: API version.
+    * `type`: Type to perform (e.g., "presence-sensor") .
+    * `address`: Zone address
+     
+* **Response Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/ZONE/E/STATUS`
+* **Response Payload:**
+
+    ```json
+    {
+       "version": "v1.0",
+       "message": "success",
+       "type": "lightness",
+       "address": 50646,
+       "presence-sensor": {
+          "lightness": 40,
+          "event": 1
+       }
+    }
+    ```
+    * `version`: API version.
+    * `message`: Status of the request.
+    * `type`: Type perform.
+    * `address`: Zone address
+    * `presence-sensor`: presence objects.
+        * `lightness`: Zone lightness
+        * `event`: Indicates whether there is an event within the zone or not.
+
