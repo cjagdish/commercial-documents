@@ -30,12 +30,12 @@
     * [4.1. Get Node](#41-get-node)
 5. [Zone Operations](#5-zone-operations)
      * [5.1. Get Zone Status](#51-get-zone-status)
-        * [5.1.1 Get CCT Zone Status](#511-get-cct-zone-status)
-        * [5.1.2 Get Dimmer Zone Status](#512-get-dimmer-zone-status)
-        * [5.1.3 Get Presence Zone Status](#513-get-presence-zone-status)
+        * [5.1.1 CCT Status](#511-get-cct-zone-status)
+        * [5.1.2 Dimmer Status](#512-get-dimmer-zone-status)
+        * [5.1.3 Presence Status](#513-get-presence-zone-status)
      * [5.2. Control Zone](#42-control-zone])
-        * [5.2.1 Control CCT Zone](#521-control-cct-zone)
-        * [5.2.2 Control Dimmer Zone](#522-control-dimmer-zone)
+        * [5.2.1 Control CCT](#521-control-cct-zone)
+        * [5.2.2 Control Dimmer](#522-control-dimmer-zone)
 6. [Node Operations](#6-node-operations)
      * [6.1. Get Node Status](#61-get-zone-status)
         * [6.1.1 Get CCT Status](#611-get-cct-status)
@@ -1142,8 +1142,7 @@
 
 ### 5.1. Get Zone Status
 
-**5.1.1 Get Zone CCT Status**
-
+**5.1.1 CCT Status**
 
 * **Request Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/ZONE/STATUS`
 * **Request Payload:**
