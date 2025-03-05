@@ -30,7 +30,7 @@
     * [4.1. Get Node](#41-get-node)
 5. [Zone Operations](#5-zone-operations)
      * [5.1. Get Zone Status](#51-get-zone-status)
-        * [5.1.1 CCT Status](#511-get-cct-zone-status)
+        * [5.1.1 CCT Status](#511-cct-status)
         * [5.1.2 Dimmer Status](#512-get-dimmer-zone-status)
         * [5.1.3 Presence Status](#513-get-presence-zone-status)
      * [5.2. Control Zone](#42-control-zone])
