@@ -39,9 +39,8 @@
 7. [Node Operations](#7-node-operations)
     * [7.1 Get CCT Node Status](#71-get-cct-status)
     * [7.2 Get Dimmer Node Status](#72-get-dimmer-status)
-    * [7.3 Get Presence Node Status](#73-get-presence-status)
-    * [7.4 Control CCT Node](#74-operate-cct)
-    * [7.5 Control Dimmer Node](#75-operate-dimmer)
+    * [7.3 Control CCT Node](#73-operate-cct)
+    * [7.4 Control Dimmer Node](#74-operate-dimmer)
 8. [Live Events](#8-live-events])
 
 ## Broker Connection Details
@@ -1393,4 +1392,170 @@
     * `address`: Zone address
     * `lightness`: lightness objects.
         * `lightness`: Zone lightness
+     
+## 7. Node Operations
+
+### 7.1. Get CCT Node Status
+
+* **Request Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/NODE/STATUS`
+* **Request Payload:**
+
+    ```json
+    {
+       "version": "v1.0",
+       "type": "ctl",
+       "address": 50646
+    }
+    ```
+
+    * `version`: API version.
+    * `type`: Type to perform (e.g., "ctl") .
+    * `address`: Node address
+     
+* **Response Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/NODE/E/STATUS`
+* **Response Payload:**
+
+    ```json
+    {
+       "version": "v1.0",
+       "message": "success",
+       "type": "ctl",
+       "address": 50646,
+       "ctl": {
+          "lightness": 40,
+          "temperature": 100
+       }
+    }
+    ```
+    * `version`: API version.
+    * `message`: Status of the request.
+    * `type`: Type perform.
+    * `address`: Node address
+    * `ctl`: ctl objects.
+        * `lightness`: Node lightness
+        * `temperature`: Node temperature.
+     
+### 7.2. Get Dimmer Node Status
+
+* **Request Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/NODE/STATUS`
+* **Request Payload:**
+
+    ```json
+    {
+       "version": "v1.0",
+       "type": "lightness",
+       "address": 50646
+    }
+    ```
+
+    * `version`: API version.
+    * `type`: Type to perform (e.g., "lightness") .
+    * `address`: Node address
+     
+* **Response Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/NODE/E/STATUS`
+* **Response Payload:**
+
+    ```json
+    {
+       "version": "v1.0",
+       "message": "success",
+       "type": "lightness",
+       "address": 50646,
+       "lightness": {
+          "lightness": 40,
+       }
+    }
+    ```
+    * `version`: API version.
+    * `message`: Status of the request.
+    * `type`: Type perform.
+    * `address`: Node address
+    * `lightness`: lightness objects.
+        * `lightness`: Node lightness
+     
+### 7.3. Control CCT Node
+
+* **Request Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/NODE/CONTROL`
+* **Request Payload:**
+
+    ```json
+    {
+       "version": "v1.0",
+       "type": "ctl",
+       "address": 50646,
+       "lightness": 10,
+       "temperature": 100
+    }
+    ```
+
+    * `version`: API version.
+    * `type`: Type to perform (e.g., "ctl") .
+    * `address`: Node address
+    * `lightness`: Set node lightness
+    * `temperature`: Set node temperature
+     
+* **Response Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/NODE/E/CONTROL`
+* **Response Payload:**
+
+    ```json
+    {
+       "version": "v1.0",
+       "message": "success",
+       "type": "ctl",
+       "address": 50646,
+       "ctl": {
+          "lightness": 40,
+          "temperature": 100
+       }
+    }
+    ```
+    * `version`: API version.
+    * `message`: Status of the request.
+    * `type`: Type perform.
+    * `address`: Node address
+    * `ctl`: ctl objects.
+        * `lightness`: Node lightness
+        * `temperature`: Node temperature.
+     
+### 6.5. Control Dimmer Node
+
+* **Request Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/NODE/CONTROL`
+* **Request Payload:**
+
+    ```json
+    {
+       "version": "v1.0",
+       "type": "lightness",
+       "address": 50646,
+       "lightness": 40
+    }
+    ```
+
+    * `version`: API version.
+    * `type`: Type to perform (e.g., "lightness") .
+    * `address`: Node address
+    * `lightness`: Set node lightness
+     
+* **Response Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/NODE/E/CONTROL`
+* **Response Payload:**
+
+    ```json
+    {
+       "version": "v1.0",
+       "message": "success",
+       "type": "lightness",
+       "address": 50646,
+       "lightness": {
+          "lightness": 40,
+       }
+    }
+    ```
+    * `version`: API version.
+    * `message`: Status of the request.
+    * `type`: Type perform.
+    * `address`: Node address
+    * `lightness`: lightness objects.
+        * `lightness`: Node lightness
+
+
 
