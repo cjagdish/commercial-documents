@@ -1136,6 +1136,66 @@
         * `model_id`: Model identifier
         * `device_type`: Type of device
      
+## 5. Gateway Actions
+
+### 5.1. Get Gateway
+
+* **Request Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/GATEWAY/ACTION`
+* **Request Payload:**
+
+    ```json
+    {
+      "version": "v1.0",
+      "action": "get",
+      "data": {
+          "gateway_uuid": "f1677ff1-0138-47a0-b202-5de5e83827a0"
+       }
+    }
+    ```
+
+    * `version`: API version.
+    * `action`: Action to perform (e.g., "get").
+    * `data`: Gateway details.
+        * `gateway_uuid`: Unique identifier of the gateway.
+     
+* **Response Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/GATEWAY/E/ACTION`
+* **Response Payload:**
+
+    ```json
+    {
+       "message":"success",
+       "version":"v1.0",
+       "action":"get",
+       "data":{
+          "node_uuid":"bbcc84f7-0316-34c6-0000-000000000000",
+          "name":"LYTIVA_1634C6",
+          "pid":"1015",
+          "vid":"0263",
+          "unicast_address":2753,
+          "zone_uuid":"3f669f5c-9355-4797-b2c7-43755d2bd33c",
+          "zone_name":"Sixth zone",
+          "zone_address":51276,
+          "model_id":"1303",
+          "device_type":"ctl"
+       }
+    }
+    ```
+
+    * `message`: Status of the request.
+    * `version`: API version.
+    * `action`: Action performed.
+    * `data`: node objects.
+        * `node_uuid`: Unique identifier for the node
+        * `name`: Name of the node.
+        * `pid`: Product id
+        * `vid`: Version id
+        * `unicast_address`: Node unicast address
+        * `zone_uuid`: Unique identifier of the zone.
+        * `zone_name`: Zone name
+        * `zone_address`: Zone address
+        * `model_id`: Model identifier
+        * `device_type`: Type of device
+     
 ## 6. Zone Operations
 
 ### 6.1. Get CCT Zone Status
