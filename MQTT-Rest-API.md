@@ -43,7 +43,6 @@
     * [7.4 Control Dimmer Node](#74-operate-dimmer)
 8. [Gatewat Operations](#8-gateway-operations)
     * [8.1 Get Gateway Status](#81-get-gateway-status)
-  
 9. [Live Events](#8-live-events])
 
 ## Broker Connection Details
