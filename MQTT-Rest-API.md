@@ -33,7 +33,7 @@
 6. [Zone Operations](#6-zone-operations)
     * [6.1 Get CCT Zone Status](#61-get-cct-zone-status)
     * [6.2 Get Dimmer Zone Status](#62-get-dimmer-zone-status)
-    * [6.3 Get Presence Zone Status](#63-get-presence-zone-status)
+    * [6.3 Get Presence Sensor Zone Status](#63-get-presence-sensor-zone-status)
     * [6.4 Control CCT Zone](#64-control-cct-zone)
     * [6.5 Control Dimmer Zone](#65-control-dimmer-zone)
 7. [Node Operations](#7-node-operations)
@@ -1271,7 +1271,7 @@
     * `lightness`: lightness objects.
         * `lightness`: Zone lightness
      
-### 6.3. Get Presence Zone Status
+### 6.3. Get Presence Sensor Zone Status
 
 * **Request Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/ZONE/STATUS`
 * **Request Payload:**
