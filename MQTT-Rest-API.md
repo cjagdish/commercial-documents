@@ -1559,6 +1559,44 @@
     * `address`: Node address
     * `lightness`: lightness objects.
         * `lightness`: Node lightness
+     
+## 8. Gateway Operations
+
+### 8.1. Get Gateway Status
+
+* **Request Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/GATEWAY/STATUS`
+* **Request Payload:**
+
+    ```json
+    {
+       "version": "v1.0",
+       "address": 249
+    }
+    ```
+
+    * `version`: API version.
+    * `address`: Gateway address
+     
+* **Response Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/GATEWAY/E/STATUS`
+* **Response Payload:**
+
+    ```json
+    {
+       "version": "v1.0",
+       "message": "success",
+       "type": "gateway",
+       "address": 249,
+       "gateway": {
+          "status": "online"
+       }
+    }
+    ```
+    * `version`: API version.
+    * `message`: Status of the request.
+    * `type`: Type gateway.
+    * `address`: Gateway address
+    * `gateway`: gateway objects.
+        * `status`: indicates network connectivity, where `online` means connected and `offline` means disconnected.
 
 
 
