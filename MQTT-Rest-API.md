@@ -1255,4 +1255,49 @@
     * `presence-sensor`: presence objects.
         * `lightness`: Zone lightness
         * `event`: Indicates whether there is an event within the zone or not.
+     
+### 6.4. Control CCT Zone
+
+* **Request Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/ZONE/CONTROL`
+* **Request Payload:**
+
+    ```json
+    {
+       "version": "v1.0",
+       "type": "ctl",
+       "address": 50646,
+       "lightness": 10,
+       "temperature": 100
+    }
+    ```
+
+    * `version`: API version.
+    * `type`: Type to perform (e.g., "ctl") .
+    * `address`: Zone address
+    * `lightness`: Set zone lightness
+    * `temperature`: Set zone temperature
+     
+* **Response Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/ZONE/E/CONTROL`
+* **Response Payload:**
+
+    ```json
+    {
+       "version": "v1.0",
+       "message": "success",
+       "type": "ctl",
+       "address": 50646,
+       "ctl": {
+          "lightness": 40,
+          "temperature": 100
+       }
+    }
+    ```
+    * `version`: API version.
+    * `message`: Status of the request.
+    * `type`: Type perform.
+    * `address`: Zone address
+    * `ctl`: ctl objects.
+        * `lightness`: Zone lightness
+        * `temperature`: Zone temperature.
+
 
