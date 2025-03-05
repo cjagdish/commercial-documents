@@ -1216,7 +1216,7 @@
     * `lightness`: lightness objects.
         * `lightness`: Zone lightness
      
-### 6.2. Get Presence Zone Status
+### 6.3. Get Presence Zone Status
 
 * **Request Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/ZONE/STATUS`
 * **Request Payload:**
