@@ -377,10 +377,10 @@
     * `action`: Action performed.
     * `data`: Array of gateway objects.
         * `gateway_uuid`: Unique identifier for the gateway
-        * `name`: Name of the node.
+        * `name`: Name of the gateway.
         * `pid`: Product id
         * `vid`: Version id
-        * `unicast_address`: Node unicast address
+        * `unicast_address`: Gateway unicast address
         * `area_uuid`: Unique identifier of the area.
         * `area_name`: Area name
      
@@ -749,10 +749,10 @@
     * `action`: Action performed.
     * `data`: Array of gateway objects.
         * `gateway_uuid`: Unique identifier for the gateway
-        * `name`: Name of the node.
+        * `name`: Name of the gateway.
         * `pid`: Product id
         * `vid`: Version id
-        * `unicast_address`: Node unicast address
+        * `unicast_address`: Gateway unicast address
         * `area_uuid`: Unique identifier of the area.
         * `area_name`: Area name
      
@@ -1163,20 +1163,17 @@
 
     ```json
     {
-       "message":"success",
-       "version":"v1.0",
-       "action":"get",
-       "data":{
-          "node_uuid":"bbcc84f7-0316-34c6-0000-000000000000",
-          "name":"LYTIVA_1634C6",
-          "pid":"1015",
-          "vid":"0263",
-          "unicast_address":2753,
-          "zone_uuid":"3f669f5c-9355-4797-b2c7-43755d2bd33c",
-          "zone_name":"Sixth zone",
-          "zone_address":51276,
-          "model_id":"1303",
-          "device_type":"ctl"
+       "message": "success",
+       "version": "v1.0",
+       "action": "get",
+       "data": {
+          "gateway_uuid": "aaaa84f7-036e-8d2e-0000-000000000000",
+          "name": "AERIVA_6E8D2E",
+          "pid": "1041",
+          "vid": "0111",
+          "area_uuid": "f1677ff1-0138-47a0-b202-5de5e83827a0",
+          "area_name": "A514 office",
+          "unicast_address": 249
        }
     }
     ```
@@ -1184,17 +1181,14 @@
     * `message`: Status of the request.
     * `version`: API version.
     * `action`: Action performed.
-    * `data`: node objects.
-        * `node_uuid`: Unique identifier for the node
-        * `name`: Name of the node.
+    * `data`: gateway object.
+        * `gateway_uuid`: Unique identifier for the gateway
+        * `name`: Name of the gateway.
         * `pid`: Product id
         * `vid`: Version id
-        * `unicast_address`: Node unicast address
-        * `zone_uuid`: Unique identifier of the zone.
-        * `zone_name`: Zone name
-        * `zone_address`: Zone address
-        * `model_id`: Model identifier
-        * `device_type`: Type of device
+        * `unicast_address`: Gateway unicast address
+        * `area_uuid`: Unique identifier of the area.
+        * `area_name`: Area name
      
 ## 6. Zone Operations
 
