@@ -28,7 +28,6 @@
     * [3.6. Get Zone Added Gateways](#36-get-zone-added-gateways) 
 4.  [Node Actions](#4-node-actions)
     * [4.1. Get Node](#41-get-node)
-    * [4.2. Edit Node](#42-edit-node)
 5. [Zone Operations](#5-zone-operations)
      * [5.1. Get Zone Status](#41-get-zone-status)
         * [5.1.1 Get CCT Zone Status](#511-get-cct-zone-status)
@@ -1138,5 +1137,48 @@
         * `zone_address`: Zone address
         * `model_id`: Model identifier
         * `device_type`: Type of device
+     
+## 5. Zone Operations
+
+### 5.1. Get Zone Status
+
+**5.1.1 Get Zone CCT Status**
 
 
+* **Request Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/ZONE/STATUS`
+* **Request Payload:**
+
+    ```json
+    {
+       "version": "v1.0",
+       "type": "ctl",
+       "address": 50646
+    }
+    ```
+
+    * `version`: API version.
+    * `type`: Type to perform (e.g., "ctl") .
+    * `address`: Zone address
+     
+* **Response Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/ZONE/E/STATUS`
+* **Response Payload:**
+
+    ```json
+    {
+       "version": "v1.0",
+       "message": "success",
+       "type": "ctl",
+       "address": 50646,
+       "ctl": {
+          "lightness": 40,
+          "temperature": 100
+       }
+    }
+    ```
+    * `version`: API version.
+    * `message`: Status of the request.
+    * `type`: Type perform.
+    * `address`: Zone address
+    * `ctl`: node objects.
+        * `lightness`: Zone lightness
+        * `temperature`: Zone temperature.
