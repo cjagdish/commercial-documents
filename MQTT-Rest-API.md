@@ -36,6 +36,7 @@
     * [6.3 Get Presence Sensor Zone Status](#63-get-presence-sensor-zone-status)
     * [6.4 Control CCT Zone](#64-control-cct-zone)
     * [6.5 Control Dimmer Zone](#65-control-dimmer-zone)
+<!-- * [6.6 Get Entery Exit Sensor Zone Status](#66-get-entery-exit-sensor-zone-status)  -->
 7. [Node Operations](#7-node-operations)
     * [7.1 Get CCT Node Status](#71-get-cct-status)
     * [7.2 Get Dimmer Node Status](#72-get-dimmer-status)
@@ -43,7 +44,16 @@
     * [7.4 Control Dimmer Node](#74-operate-dimmer)
 8. [Gatewat Operations](#8-gateway-operations)
     * [8.1 Get Gateway Status](#81-get-gateway-status)
-9. [Live Events](#8-live-events])
+9. [Live Events](#9-live-events])
+ <!--   * [9.1 Edit Project](#91-edit-project)
+    * [9.2 Delete Project](#92-delete-project)
+    * [9.3 Create Area](#93-create-area)
+    * [9.4 Edit Area](#94-edit-area)
+    * [9.5 Delete Area](#95-delete-area)
+    * [9.6 Create Zone](#96-create-zone)
+    * [9.7 Edit Zone](#97-edit-zone)
+    * [9.8 Delete Zone](#98-delete-zone) -->
+11. [Error Message](#10-error-messages)
 
 ## Broker Connection Details
 
@@ -1596,6 +1606,33 @@
     * `address`: Gateway address
     * `gateway`: gateway objects.
         * `status`: indicates network connectivity, where `online` means connected and `offline` means disconnected.
+     
+## 9. Live Events
+If you are using Lytiva's dashboard and performing any action, you can subscribe to the topic for live events, which are as follows:
 
+### 9.1. Edit Project
+
+* **Response Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/PROJECT/E/ACTION`
+* **Response Payload:**
+
+   ```json
+   {
+     "action": "edit",
+     "message": "success",
+     "version": "v1.0",
+     "data": {
+         "project_uuid": "7346d2b3-ee78-4907-b6cb-c936b8aed1b1",
+         "name": "demo",
+         "project_type": "Workspace"
+      }
+   }
+   ```
+   * `version`: API version.
+   * `action`: Action performed.
+   * `message`: Status of the request.
+   * `data`:
+      * `project_uuid`: The unique identifier of the project.
+      * `name`: The updated name of the project.
+      * `project_type`: The updated project type, ensuring it matches the supported types.
 
 
