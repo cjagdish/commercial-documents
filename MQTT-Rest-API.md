@@ -43,7 +43,12 @@
     * [7.1 Get CCT Node Status](#71-get-cct-status)
     * [7.2 Get Dimmer Node Status](#72-get-dimmer-status)
     * [7.3 Control CCT Node](#73-operate-cct)
-    * [7.4 Control Dimmer Node](#74-operate-dimmer) 
+    * [7.4 Control Dimmer Node](#74-operate-dimmer)
+    * [7.5 Get Presence Senser Node Status](#75-get-presence-sensor-node-status)
+    * [7.6 Get Entery Exit Sensor Node Status](#76-get-entry-exist-sensor-node-status)
+    * [7.7 Get Lux Sensor Node Status](#77-get-lux-sensor-node-status)
+    * [7.8 Get Temperature Humidity Sensor Node Status](#78-get-temperature-humidity-sensor-node-status)
+    * [7.9 Get Parking Sensor Node Status](#79-get-parking-sensor-node-status) 
 8. [Gateway Operations](#8-gateway-operations)
     * [8.1 Get Gateway Status](#81-get-gateway-status)
 9. [Live Events](#9-live-events])
@@ -1307,7 +1312,7 @@
     {
        "version": "v1.0",
        "message": "success",
-       "type": "lightness",
+       "type": "presence-sensor",
        "address": 50646,
        "presence-sensor": {
           "lightness": 40,
@@ -1652,7 +1657,7 @@
         * `lightness`: Node lightness
         * `temperature`: Node temperature.
      
-### 6.5. Control Dimmer Node
+### 7.4. Control Dimmer Node
 
 * **Request Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/NODE/CONTROL`
 * **Request Payload:**
@@ -1692,6 +1697,166 @@
     * `lightness`: lightness objects.
         * `lightness`: Node lightness
      
+### 7.5. Get Presence Sensor Node Status
+
+* **Request Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/NODE/STATUS`
+* **Request Payload:**
+
+    ```json
+    {
+       "version": "v1.0",
+       "type": "presence-sensor",
+       "address": 1029
+    }
+    ```
+
+    * `version`: API version.
+    * `type`: Type to perform (e.g., "presence-sensor") .
+    * `address`: Node address
+     
+* **Response Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/NODE/E/STATUS`
+* **Response Payload:**
+
+    ```json
+    {
+       "version": "v1.0",
+       "message": "success",
+       "type": "presence-sensor",
+       "address": 1029,
+       "presence-sensor": {
+          "lightness": 40,
+          "event": 1
+       }
+    }
+    ```
+    * `version`: API version.
+    * `message`: Status of the request.
+    * `type`: Type perform.
+    * `address`: Node address
+    * `presence-sensor`: Presence sensor objects.
+        * `lightness`: Node lightness
+        * `event`: Indicates whether the node has an event or not.
+     
+### 7.6. Get Entery Exit Sensor Node Status
+
+* **Request Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/NODE/STATUS`
+* **Request Payload:**
+
+    ```json
+    {
+       "version": "v1.0",
+       "type": "entry-exit-sensor",
+       "address": 50646
+    }
+    ```
+
+    * `version`: API version.
+    * `type`: Type to perform (e.g., "entry-exit-sensor") .
+    * `address`: Node address
+     
+* **Response Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/NODE/E/STATUS`
+* **Response Payload:**
+
+    ```json
+    {
+       "version": "v1.0",
+       "message": "success",
+       "type": "entry-exit-sensor",
+       "address": 50646,
+       "entry-exit-sensor": {
+             "lightness": 55,
+             "event": 1,
+             "person_count": 3
+          }
+    }
+    ```
+    * `version`: API version.
+    * `message`: Status of the request.
+    * `type`: Type perform.
+    * `address`: Node address
+    * `entry-exit-sensor`: Entry exist sensor objects.
+        * `lightness`: Node lightness
+        * `event`: Indicates whether there is an event on the node.
+        * `person_count`: Person counts
+     
+### 7.7. Get Lux Sensor Node Status
+
+* **Request Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/NODE/STATUS`
+* **Request Payload:**
+
+    ```json
+    {
+       "version": "v1.0",
+       "type": "lux-sensor",
+       "address": 51535
+    }
+    ```
+
+    * `version`: API version.
+    * `type`: Type to perform (e.g., "lux-sensor") .
+    * `address`: Node address
+     
+* **Response Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/NODE/E/STATUS`
+* **Response Payload:**
+
+    ```json
+    {
+       "version": "v1.0",
+       "message": "success",
+       "type": "lux-sensor",
+       "address":51535,
+       "lux-sensor": {
+             "lux_level": 1200
+          }
+    }
+    ```
+    * `version`: API version.
+    * `message`: Status of the request.
+    * `type`: Type perform.
+    * `address`: Node address
+    * `lux-sensor`: Lux sensor objects.
+        * `lux_level`: Displays the node's current lux level.
+     
+### 7.8. Get Temperature Humidity Sensor Node Status
+
+* **Request Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/NODE/STATUS`
+* **Request Payload:**
+
+    ```json
+    {
+       "version": "v1.0",
+       "type": "temperature-humidity-sensor",
+       "address": 51982
+    }
+    ```
+
+    * `version`: API version.
+    * `type`: Type to perform (e.g., "temperature-humidity-sensor") .
+    * `address`: Node address
+     
+* **Response Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/NODE/E/STATUS`
+* **Response Payload:**
+
+    ```json
+    {
+       "version":"v1.0",
+       "message":"success",
+       "type":"temperature-humidity-sensor",
+       "address":51982,
+       "temperature-humidity-sensor": {
+                            "temperature":30,
+                            "humidity":44
+       }
+    }
+    ```
+    * `version`: API version.
+    * `message`: Status of the request.
+    * `type`: Type perform.
+    * `address`: Zone address
+    * `temperature-humidity-sensor`: Temperature humidity sensor objects.
+        * `temperature`: Shows what the temperature is.
+        * `humidity`: Shows what the humidity is.
+
 ## 8. Gateway Operations
 
 ### 8.1. Get Gateway Status
