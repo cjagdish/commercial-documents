@@ -36,7 +36,8 @@
     * [6.3 Get Presence Sensor Zone Status](#63-get-presence-sensor-zone-status)
     * [6.4 Control CCT Zone](#64-control-cct-zone)
     * [6.5 Control Dimmer Zone](#65-control-dimmer-zone)
-    * [6.6 Get Entery Exit Sensor Zone Status](#66-get-entery-exit-sensor-zone-status)  
+    * [6.6 Get Entery Exit Sensor Zone Status](#66-get-entery-exit-sensor-zone-status)
+    * [6.7 Get Lux Sensor Zone Status](#67-get-lux-sensor-zone-status) 
 7. [Node Operations](#7-node-operations)
     * [7.1 Get CCT Node Status](#71-get-cct-status)
     * [7.2 Get Dimmer Node Status](#72-get-dimmer-status)
@@ -1446,7 +1447,45 @@
         * `lightness`: Zone lightness
         * `event`: Indicates whether there is an event within the zone or not.
         * `person_count`: The counts show how many people have entered the zone.
+     
+### 6.7. Get Lux Sensor Zone Status
 
+* **Request Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/ZONE/STATUS`
+* **Request Payload:**
+
+    ```json
+    {
+       "version": "v1.0",
+       "type": "lux-sensor",
+       "address": 51535
+    }
+    ```
+
+    * `version`: API version.
+    * `type`: Type to perform (e.g., "entry-exit-sensor") .
+    * `address`: Zone address
+     
+* **Response Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/ZONE/E/STATUS`
+* **Response Payload:**
+
+    ```json
+    {
+       "version": "v1.0",
+       "message": "success",
+       "type": "lux-sensor",
+       "address":51535,
+       "lux-sensor": {
+             "lux_level": 1200
+          }
+    }
+    ```
+    * `version`: API version.
+    * `message`: Status of the request.
+    * `type`: Type perform.
+    * `address`: Zone address
+    * `lux-sensor`: Lux sensor objects.
+        * `lux_level`: Shows the current lux level within the zone.
+      
      
 ## 7. Node Operations
 
