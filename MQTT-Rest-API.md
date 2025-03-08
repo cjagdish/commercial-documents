@@ -37,7 +37,8 @@
     * [6.4 Control CCT Zone](#64-control-cct-zone)
     * [6.5 Control Dimmer Zone](#65-control-dimmer-zone)
     * [6.6 Get Entery Exit Sensor Zone Status](#66-get-entery-exit-sensor-zone-status)
-    * [6.7 Get Lux Sensor Zone Status](#67-get-lux-sensor-zone-status) 
+    * [6.7 Get Lux Sensor Zone Status](#67-get-lux-sensor-zone-status)
+    * [6.8 Get Temperature Humidity Sensor Zone Status](#68-get-temperature-humidity-sensor-zone-status)
 7. [Node Operations](#7-node-operations)
     * [7.1 Get CCT Node Status](#71-get-cct-status)
     * [7.2 Get Dimmer Node Status](#72-get-dimmer-status)
@@ -1485,7 +1486,46 @@
     * `address`: Zone address
     * `lux-sensor`: Lux sensor objects.
         * `lux_level`: Shows the current lux level within the zone.
-      
+     
+### 6.8. Get Temperature Humidity Sensor Zone Status
+
+* **Request Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/ZONE/STATUS`
+* **Request Payload:**
+
+    ```json
+    {
+       "version": "v1.0",
+       "type": "temperature-humidity-sensor",
+       "address": 51982
+    }
+    ```
+
+    * `version`: API version.
+    * `type`: Type to perform (e.g., "temperature-humidity-sensor") .
+    * `address`: Zone address
+     
+* **Response Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/ZONE/E/STATUS`
+* **Response Payload:**
+
+    ```json
+    {
+       "version":"v1.0",
+       "message":"success",
+       "type":"temperature-humidity-sensor",
+       "address":51982,
+       "temperature-humidity-sensor": {
+                   "temperature":30,
+                   "humidity":44
+       }
+    }
+    ```
+    * `version`: API version.
+    * `message`: Status of the request.
+    * `type`: Type perform.
+    * `address`: Zone address
+    * `lux-sensor`: Lux sensor objects.
+        * `lux_level`: Shows the current lux level within the zone.
+
      
 ## 7. Node Operations
 
