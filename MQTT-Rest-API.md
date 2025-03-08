@@ -1939,7 +1939,7 @@
    If you want to work on live activity, you can subscribe to the following topics.
 
 ### 9.1. Edit Project
-   If you are not using MQTT API and are editing projects from dashboard then you can subscribe to this topic.
+If you edit an project from the dashboard, and you want to see events on mqtt, you can subscribe to this topic.
    
 * **Response Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/PROJECT/E/ACTION`
 * **Response Payload:**
@@ -1965,7 +1965,7 @@
       * `project_type`: The updated project type, ensuring it matches the supported types.
     
 ### 9.2. Delete Project
-   If you delete the project from the dashboard, you can subscribe to this topic.   
+If you delete an project from the dashboard, and you want to see events on mqtt, you can subscribe to this topic.
 
 * **Response Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/PROJECT/E/ACTION`
 * **Response Payload:**
@@ -1987,7 +1987,7 @@
       * `project_uuid`: The unique identifier of the project.
     
 ### 9.3. Create Area
-
+If you create an area from the dashboard, and you want to see events on mqtt, you can subscribe to this topic.
 
 * **Response Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/AREA/E/ACTION`
 * **Response Payload:**
@@ -2014,6 +2014,7 @@
         * `name`: Name of the area.
      
 ### 9.4. Edit Area
+If you edit an area from the dashboard, and you want to see events on mqtt, you can subscribe to this topic.
 
 
 * **Response Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/AREA/E/ACTION`
@@ -2041,6 +2042,7 @@
         * `name`: Name of the area.
      
 ### 9.5. Delete Area
+If you delete an area from the dashboard, and you want to see events on mqtt, you can subscribe to this topic.
 
 * **Response Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/AREA/E/ACTION`
 * **Response Payload:**
@@ -2061,6 +2063,94 @@
     * `action`: Action performed.
     * `data`: Area details.
         * `area_uuid`: Unique identifier of the area.
+     
+### 9.6. Create Zone
+If you create an zone from the dashboard, and you want to see events on mqtt, you can subscribe to this topic.
+
+* **Response Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/ZONE/E/ACTION`
+* **Response Payload:**
+
+    ```json
+    {
+       "action":"create",
+       "message":"success",
+       "version":"v1.0",
+       "data":{
+          "area_uuid":"f1677ff1-0138-47a0-b202-5de5e83827a0",
+          "area_name":"A514 office",
+          "zone_uuid":"57fc8ee9-b192-475f-8b59-8fef66838dfd",
+          "zone_address":49442,
+          "name":"Demo 1"
+       }
+    }
+    ```
+
+    * `message`: Status of the request.
+    * `version`: API version.
+    * `action`: Action performed.
+    * `data`: Zone details.
+        * `zone_address`: Address of the zone.
+        * `name`: Name of the zone.
+        * `area_uuid`: Unique identifier of the area.
+        * `area_name`: Name of the area.
+        * `zone_uuid`: Unique identifier of the zone.
+     
+### 9.7. Edit Zone
+If you edit an zone from the dashboard, and you want to see events on mqtt, you can subscribe to this topic.
+
+* **Response Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/ZONE/E/ACTION`
+* **Response Payload:**
+
+    ```json
+    {
+       "message":"success",
+       "action":"edit",
+       "version":"v1.0",
+       "data":{
+          "area_uuid":"f1677ff1-0138-47a0-b202-5de5e83827a0",
+          "area_name":"A514 office",
+          "zone_uuid":"57fc8ee9-b192-475f-8b59-8fef66838dfd",
+          "zone_address":49442,
+          "name":"Hello 1"
+       }
+    }
+    ```
+
+    * `message`: Status of the request.
+    * `version`: API version.
+    * `action`: Action performed.
+    * `data`: Zone details.
+        * `zone_address`: Address of the zone.
+        * `name`: Name of the zone.
+        * `area_uuid`: Unique identifier of the area.
+        * `area_name`: Name of the area.
+        * `zone_uuid`: Unique identifier of the zone.
+     
+### 3.4. Delete Zone
+If you delete an zone from the dashboard, and you want to see events on mqtt, you can subscribe to this topic.
+
+* **Response Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/ZONE/E/ACTION`
+* **Response Payload:**
+
+    ```json
+    {
+       "action":"delete",
+       "message":"success",
+       "version":"v1.0",
+       "data":{
+          "zone_uuid":"57fc8ee9-b192-475f-8b59-8fef66838dfd",
+          "zone_address":49442
+       }
+    }
+    ```
+
+    * `message`: Status of the request.
+    * `version`: API version.
+    * `action`: Action performed.
+    * `data`: Zone details.
+        * `zone_uuid`: Unique identifier of the zone.
+        * `zone_address`: Address of the zone.
+
 
 
 
