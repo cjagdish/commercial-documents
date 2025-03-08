@@ -1852,11 +1852,49 @@
     * `version`: API version.
     * `message`: Status of the request.
     * `type`: Type perform.
-    * `address`: Zone address
+    * `address`: Node address
     * `temperature-humidity-sensor`: Temperature humidity sensor objects.
         * `temperature`: Shows what the temperature is.
         * `humidity`: Shows what the humidity is.
+     
+### 7.9. Get Parking Sensor Node Status
 
+* **Request Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/NODE/STATUS`
+* **Request Payload:**
+
+    ```json
+    {
+       "version": "v1.0",
+       "type": "parking-sensor",
+       "address": 51982
+    }
+    ```
+
+    * `version`: API version.
+    * `type`: Type to perform (e.g., "parking-sensor") .
+    * `address`: Node address
+     
+* **Response Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/NODE/E/STATUS`
+* **Response Payload:**
+
+    ```json
+    {
+       "version": "v1.0",
+       "message": "success",
+       "type": "parking-sensor",
+       "address": 3338,
+       "parking-sensor": {
+             "event":0
+       }
+    }
+    ```
+    * `version`: API version.
+    * `message`: Status of the request.
+    * `type`: Type perform.
+    * `address`: Node address
+    * `parking-sensor`: Parking sensor objects.
+        * `event`: Indicates whether there is an event on the parking sensor.
+     
 ## 8. Gateway Operations
 
 ### 8.1. Get Gateway Status
