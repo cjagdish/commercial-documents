@@ -1514,8 +1514,8 @@
        "type":"temperature-humidity-sensor",
        "address":51982,
        "temperature-humidity-sensor": {
-                   "temperature":30,
-                   "humidity":44
+                            "temperature":30,
+                            "humidity":44
        }
     }
     ```
@@ -1523,8 +1523,9 @@
     * `message`: Status of the request.
     * `type`: Type perform.
     * `address`: Zone address
-    * `lux-sensor`: Lux sensor objects.
-        * `lux_level`: Shows the current lux level within the zone.
+    * `temperature-humidity-sensor`: Temperature humidity sensor objects.
+        * `temperature`: Shows how much temperature is inside the zone.
+        * `humidity`: Shows how much humidity is inside the zone.
 
      
 ## 7. Node Operations
