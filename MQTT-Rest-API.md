@@ -52,14 +52,16 @@
 8. [Gateway Operations](#8-gateway-operations)
     * [8.1 Get Gateway Status](#81-get-gateway-status)
 9. [Live Events](#9-live-events])
- <!--   * [9.1 Edit Project](#91-edit-project)
+    * [9.1 Edit Project](#91-edit-project)
     * [9.2 Delete Project](#92-delete-project)
     * [9.3 Create Area](#93-create-area)
     * [9.4 Edit Area](#94-edit-area)
     * [9.5 Delete Area](#95-delete-area)
     * [9.6 Create Zone](#96-create-zone)
     * [9.7 Edit Zone](#97-edit-zone)
-    * [9.8 Delete Zone](#98-delete-zone) -->
+    * [9.8 Delete Zone](#98-delete-zone)
+    * [9.9 Geteway Status](#99-gateway-status)
+    * [9.10 Node Status](#910-node-status) 
 11. [Error Message](#10-error-messages)
 
 ## Broker Connection Details
@@ -1934,10 +1936,11 @@
         * `status`: indicates network connectivity, where `online` means connected and `offline` means disconnected.
      
 ## 9. Live Events
-If you are using Lytiva's dashboard and performing any action, you can subscribe to the topic for live events, which are as follows:
+   If you want to work on live activity, you can subscribe to the following topics.
 
 ### 9.1. Edit Project
-
+   If you are not using MQTT API and are editing projects from dashboard then you can subscribe to this topic.
+   
 * **Response Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/PROJECT/E/ACTION`
 * **Response Payload:**
 
@@ -1960,5 +1963,104 @@ If you are using Lytiva's dashboard and performing any action, you can subscribe
       * `project_uuid`: The unique identifier of the project.
       * `name`: The updated name of the project.
       * `project_type`: The updated project type, ensuring it matches the supported types.
+    
+### 9.2. Delete Project
+   If you delete the project from the dashboard, you can subscribe to this topic.   
+
+* **Response Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/PROJECT/E/ACTION`
+* **Response Payload:**
+
+   ```json
+   {
+     "action": "delete",
+     "message": "success",
+     "version": "v1.0",
+     "data": {
+         "project_uuid": "7346d2b3-ee78-4907-b6cb-c936b8aed1b1"
+      }
+   }
+   ```
+   * `version`: API version.
+   * `action`: Action performed.
+   * `message`: Status of the request.
+   * `data`:
+      * `project_uuid`: The unique identifier of the project.
+    
+### 9.3. Create Area
+
+
+* **Response Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/AREA/E/ACTION`
+* **Response Payload:**
+
+    ```json
+    {
+       "message":"success",
+       "version":"v1.0",
+       "action":"create",
+       "data":{
+          "area_uuid":"f1677ff1-0138-47a0-b202-5de5e83827a0",
+          "name":"Area 1",
+          "project_uuid":"7346d2b3-ee78-4907-b6cb-c936b8aed1b1"
+       }
+    }
+    ```
+
+    * `message`: Status of the request (e.g., "success").
+    * `version`: API version.
+    * `action`: Action performed.
+    * `data`: Area details.
+        * `area_uuid`: Unique identifier of the area.
+        * `project_uuid`: Unique identifier of the project.
+        * `name`: Name of the area.
+     
+### 9.4. Edit Area
+
+
+* **Response Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/AREA/E/ACTION`
+* **Response Payload:**
+
+    ```json
+    {
+       "message":"success",
+       "version":"v1.0",
+       "action":"edit",
+       "data":{
+          "area_uuid":"f1677ff1-0138-47a0-b202-5de5e83827a0",
+          "name":"Area 1",
+          "project_uuid":"7346d2b3-ee78-4907-b6cb-c936b8aed1b1"
+       }
+    }
+    ```
+
+    * `message`: Status of the request (e.g., "success").
+    * `version`: API version.
+    * `action`: Action performed.
+    * `data`: Area details.
+        * `area_uuid`: Unique identifier of the area.
+        * `project_uuid`: Unique identifier of the project.
+        * `name`: Name of the area.
+     
+### 9.5. Delete Area
+
+* **Response Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/AREA/E/ACTION`
+* **Response Payload:**
+
+    ```json
+    {
+       "message":"success",
+       "version":"v1.0",
+       "action":"delete",
+       "data":{
+          "area_uuid":"f1677ff1-0138-47a0-b202-5de5e83827a0"
+       }
+    }
+    ```
+
+    * `message`: Status of the request (e.g., "success").
+    * `version`: API version.
+    * `action`: Action performed.
+    * `data`: Area details.
+        * `area_uuid`: Unique identifier of the area.
+
 
 
