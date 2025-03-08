@@ -1462,7 +1462,7 @@
     ```
 
     * `version`: API version.
-    * `type`: Type to perform (e.g., "entry-exit-sensor") .
+    * `type`: Type to perform (e.g., "lux-sensor") .
     * `address`: Zone address
      
 * **Response Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/ZONE/E/STATUS`
