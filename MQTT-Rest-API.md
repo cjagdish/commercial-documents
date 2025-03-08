@@ -45,7 +45,7 @@
     * [7.3 Control CCT Node](#73-control-cct-node)
     * [7.4 Control Dimmer Node](#74-control-dimmer-node)
     * [7.5 Get Presence Senser Node Status](#75-get-presence-sensor-node-status)
-    * [7.6 Get Entery Exit Sensor Node Status](#76-get-entry-exit-sensor-node-status)
+    * [7.6 Get Entery Exit Sensor Node Status](#76-get-entery-exit-sensor-node-status)
     * [7.7 Get Lux Sensor Node Status](#77-get-lux-sensor-node-status)
     * [7.8 Get Temperature Humidity Sensor Node Status](#78-get-temperature-humidity-sensor-node-status)
     * [7.9 Get Parking Sensor Node Status](#79-get-parking-sensor-node-status) 
