@@ -2126,7 +2126,7 @@ If you edit an zone from the dashboard, and you want to see events on mqtt, you 
         * `area_name`: Name of the area.
         * `zone_uuid`: Unique identifier of the zone.
      
-### 3.4. Delete Zone
+### 9.8. Delete Zone
 If you delete an zone from the dashboard, and you want to see events on mqtt, you can subscribe to this topic.
 
 * **Response Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/ZONE/E/ACTION`
