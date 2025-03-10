@@ -62,7 +62,7 @@
     * [9.8 Delete Zone](#98-delete-zone)
     * [9.9 Geteway Status](#99-gateway-status)
     * [9.10 Node Status](#910-node-status) 
-11. [Error Message](#10-error-messages)
+10. [Error Message](#10-error-messages)
 
 ## Broker Connection Details
 
@@ -2216,3 +2216,4 @@ If you want to see the live status of a node, you can subscribe to this topic. T
         * `lightness`: Node lightness
         * `temperature`: Node temperature.
 
+## 10. Error Messages
