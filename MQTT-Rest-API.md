@@ -2151,7 +2151,7 @@ If you delete an zone from the dashboard, and you want to see events on mqtt, yo
         * `zone_uuid`: Unique identifier of the zone.
         * `zone_address`: Address of the zone.
      
-### 8.9. Gateway Status
+### 9.9. Gateway Status
 If you want to see live status on the gateway, you can subscribe to this topic.
      
 * **Response Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/GATEWAY/E/STATUS`
@@ -2175,7 +2175,7 @@ If you want to see live status on the gateway, you can subscribe to this topic.
     * `gateway`: gateway objects.
         * `status`: indicates network connectivity, where `online` means connected and `offline` means disconnected.
      
-### 8.10. Node Status
+### 9.10. Node Status
 If you want to see the live status of a node, you can subscribe to this topic. There are many types of nodes like (ctl, lightness, parking sensor) etc.
 
 * **Request Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/NODE/STATUS`
