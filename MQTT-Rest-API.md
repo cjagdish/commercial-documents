@@ -2150,7 +2150,69 @@ If you delete an zone from the dashboard, and you want to see events on mqtt, yo
     * `data`: Zone details.
         * `zone_uuid`: Unique identifier of the zone.
         * `zone_address`: Address of the zone.
+     
+### 8.9. Gateway Status
+If you want to see live status on the gateway, you can subscribe to this topic.
+     
+* **Response Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/GATEWAY/E/STATUS`
+* **Response Payload:**
 
+    ```json
+    {
+       "version": "v1.0",
+       "message": "success",
+       "type": "gateway",
+       "address": 249,
+       "gateway": {
+          "status": "online"
+       }
+    }
+    ```
+    * `version`: API version.
+    * `message`: Status of the request.
+    * `type`: Type gateway.
+    * `address`: Gateway address
+    * `gateway`: gateway objects.
+        * `status`: indicates network connectivity, where `online` means connected and `offline` means disconnected.
+     
+### 8.10. Node Status
+If you want to see the live status of a node, you can subscribe to this topic. There are many types of nodes like (ctl, lightness, parking sensor) etc.
 
+* **Request Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/NODE/STATUS`
+* **Request Payload:**
 
+    ```json
+    {
+       "version": "v1.0",
+       "type": "ctl",
+       "address": 50646
+    }
+    ```
+
+    * `version`: API version.
+    * `type`: Type to perform (e.g., "ctl") .
+    * `address`: Node address
+     
+* **Response Topic:** `LYT/7346d2b3-ee78-4907-b6cb-c936b8aed1b1/NODE/E/STATUS`
+* **Response Payload:**
+
+    ```json
+    {
+       "version": "v1.0",
+       "message": "success",
+       "type": "ctl",
+       "address": 50646,
+       "ctl": {
+          "lightness": 40,
+          "temperature": 100
+       }
+    }
+    ```
+    * `version`: API version.
+    * `message`: Status of the request.
+    * `type`: Type perform.
+    * `address`: Node address
+    * `ctl`: ctl objects.
+        * `lightness`: Node lightness
+        * `temperature`: Node temperature.
 
